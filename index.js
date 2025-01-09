@@ -1,4 +1,5 @@
-const mineflayer = require('mineflayer')
+const mineflayer = require('mineflayer');
+const { lookNearestEntity } = require('./skills/behavior/lookNearestEntity');
 
 const bot = mineflayer.createBot({
     host: 'localhost', // optional
@@ -11,4 +12,8 @@ const bot = mineflayer.createBot({
 bot.on('login', () => {
     console.log('Bot logged in');
     bot.chat('Hello world!');
+})
+
+bot.on('physicsTick', () => {
+    lookNearestEntity(bot);
 })
