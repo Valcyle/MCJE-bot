@@ -4,7 +4,7 @@ const mineflayer = require('mineflayer');
  * 
  * @param {mineflayer.Bot} bot 
  */
-export function lookNearestEntity(bot) {
+function lookNearestEntity(bot) {
     const filter = (entity) => entity.type === 'player';
     const nearestPlayer = bot.nearestEntity(filter);
 
@@ -14,3 +14,4 @@ export function lookNearestEntity(bot) {
     bot.lookAt(pos.offset(0, nearestPlayer.height, 0));
 }
     
+module.exports = { lookNearestEntity };
